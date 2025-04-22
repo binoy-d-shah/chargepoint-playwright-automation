@@ -2,9 +2,8 @@ name: Daily Scheduled Playwright Tests
 
 on:
   schedule:
-    # Runs every day at 06:00 UTC, which is 08:00 CEST (UTC+2)
-    - cron: '0 6 * * *'
-  workflow_dispatch: # optional: allows manual triggering
+    - cron: '0 6 * * *' # runs daily at 06:00 UTC (08:00 CEST)
+  workflow_dispatch: # manual trigger
 
 jobs:
   run-tests:
@@ -19,14 +18,30 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Debug - Print Node.js version
+        run: node -v # Check Node.js version
+       
+      - name: Debug - Print npm version
+        run: npm -v # Check npm version
+
       - name: Install dependencies
-        run: npm install
+        run: |
+          echo "Installing dependencies..."
+          npm install
+          npm run build # if you have a build step, for debugging
+
+      - name: Debug - Check installed node modules
+        run: |
+          echo "Listing node_modules..."
+          ls -la node_modules # List contents of node_modules to verify
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          echo "Running Playwright tests..."
+          npx playwright test
 
       - name: Upload Playwright report
         if: always()
