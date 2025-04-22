@@ -28,12 +28,6 @@ jobs:
         run: |
           echo "Installing dependencies..."
           npm install
-          npm run build # if you have a build step, for debugging
-
-      - name: Debug - Check installed node modules
-        run: |
-          echo "Listing node_modules..."
-          ls -la node_modules # List contents of node_modules to verify
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
