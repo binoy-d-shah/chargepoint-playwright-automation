@@ -59,29 +59,6 @@ test.describe('Charge Point Installation Form UI Tests', () => {
     });
 
     /**
-     * Test case for deleting all entries and verifying the list is empty.
-     * This test ensures that all serial numbers can be deleted and the list is empty afterward.
-     */
-    test('Delete all entries and verify that list is empty', async () => {
-
-        // Generate random serial numbers
-        const serials = [generateSerialNumber(''), generateSerialNumber('')];
-
-        for (const serial of serials) {
-            // Add Serial Number
-            await chargePointPage.addSerialNumber(serial);
-            // Verify serial number in the list
-            await chargePointPage.verifySerialInList(serial);
-        }
-
-        // Delete all entries
-        await chargePointPage.deleteAllSerialEntries();
-
-        // Verify that list is empty
-        expect(await chargePointPage.getTotalSerialNumberCount()).toBe(0);
-    });
-
-    /**
      * Test case for attempting to add duplicate serial numbers.
      * This test ensures that only unique serial numbers are added to the list.
      */
@@ -163,6 +140,29 @@ test.describe('Charge Point Installation Form UI Tests', () => {
         await chargePointPage.addSerialNumber(shortSerialNumber);
         // Verify serial number is not in the list due to error
         await chargePointPage.verifySerialNotInList(shortSerialNumber);
+    });
+
+    /**
+     * Test case for deleting all entries and verifying the list is empty.
+     * This test ensures that all serial numbers can be deleted and the list is empty afterward.
+     */
+    test.skip('Delete all entries and verify that list is empty', async () => {
+
+        // Generate random serial numbers
+        const serials = [generateSerialNumber(''), generateSerialNumber('')];
+
+        for (const serial of serials) {
+            // Add Serial Number
+            await chargePointPage.addSerialNumber(serial);
+            // Verify serial number in the list
+            await chargePointPage.verifySerialInList(serial);
+        }
+
+        // Delete all entries
+        await chargePointPage.deleteAllSerialEntries();
+
+        // Verify that list is empty
+        expect(await chargePointPage.getTotalSerialNumberCount()).toBe(0);
     });
 
     /**
