@@ -1,0 +1,28 @@
+{
+  "name": "chargepoint-playwright-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation suite for testing the Charge Point Installation App. Covers both the Web UI and REST API to validate scenarios like adding, listing, and removing charge points using serial numbers.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binoy-d-shah/chargepoint-playwright-automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/binoy-d-shah/chargepoint-playwright-automation/issues"
+  },
+  "homepage": "https://github.com/binoy-d-shah/chargepoint-playwright-automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.1",
+    "playwright": "^1.51.1",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0",
+    "dotenv": "^16.5.0"
+  }
+}
