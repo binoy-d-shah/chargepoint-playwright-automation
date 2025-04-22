@@ -42,10 +42,3 @@ jobs:
         run: |
           echo "Running Playwright tests..."
           npx playwright test
-
-      - name: Upload Playwright report
-        if: success()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report/**
