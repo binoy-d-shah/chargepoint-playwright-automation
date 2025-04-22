@@ -125,6 +125,32 @@ This allows you to switch environments or credentials dynamically without modify
 
 ---
 
+## 📆 Scheduled Test Execution (CI/CD)
+
+This project includes a GitHub Actions workflow to automatically run tests every day at **8:00 AM CEST**.
+
+### 🔧 Workflow File Location
+The schedule configuration is defined in:
+
+```
+.github/workflows/scheduled-tests.yml
+```
+
+### 🕒 Schedule Details
+- The workflow runs once a day at **08:00 CEST**
+- GitHub Actions uses UTC internally, so the cron is set to `0 6 * * *` (06:00 UTC = 08:00 CEST)
+
+### ⚙️ What It Does
+- Installs project dependencies
+- Sets up Playwright and required browsers
+- Runs all defined Playwright test suites
+- Uploads the test report as an artifact (visible in GitHub Actions tab)
+
+### ✅ Manual Trigger
+You can also trigger the workflow manually via the GitHub Actions UI using the **"Run workflow"** button.
+
+---
+
 ## 👤 Author
 
 **Binoy Shah**  
